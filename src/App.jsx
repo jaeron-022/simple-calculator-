@@ -19,7 +19,7 @@ function App() {
     localStorage.setItem("calc-history", JSON.stringify(history));
   }, [history]);
 
-  // ✅ smoother typing logic
+  // Smooth typing detection
   const handleTyping = () => {
     setIsTyping(true);
 
@@ -29,7 +29,7 @@ function App() {
 
     typingTimeoutRef.current = setTimeout(() => {
       setIsTyping(false);
-    }, 500); // smoother + faster response
+    }, 500);
   };
 
   const handleClick = (value) => {
@@ -100,7 +100,9 @@ function App() {
     <div className="flex items-center justify-center min-h-screen bg-black text-white">
       <div className="bg-black p-5 rounded-[2.5rem] w-[340px] h-[520px] shadow-2xl border border-gray-800 relative overflow-hidden">
 
-        {/* HISTORY */}
+        {/* ========================= */}
+        {/* 📱 HISTORY SCREEN */}
+        {/* ========================= */}
         <div
           className={`absolute inset-0 p-5 transition-all duration-300 ${
             showHistory
@@ -164,7 +166,9 @@ function App() {
           </div>
         </div>
 
-        {/* CALCULATOR */}
+        {/* ========================= */}
+        {/* 🧮 CALCULATOR SCREEN */}
+        {/* ========================= */}
         <div
           className={`absolute inset-0 p-5 transition-all duration-300 ${
             showHistory
@@ -184,17 +188,16 @@ function App() {
             </button>
           </div>
 
-          {/* Display */}
-          <div className="text-right text-5xl font-light mb-6 px-2 break-all flex justify-end items-center gap-1">
-            <span>{input}</span>
+          {/* Display with PERFECT cursor */}
+       <div className="text-right text-5xl font-light mb-6 px-2 break-all flex justify-end items-end leading-none">
+          <span>{input}</span>
 
-            <span
-              className={`inline-block w-[2px] h-[3rem] bg-white ${
-                isTyping ? "opacity-100" : "cursor-blink"
-              }`}
-            />
+          <span
+             className={`inline-block w-[2px] h-[1em] bg-white ml-[2px] ${
+            isTyping ? "opacity-100" : "cursor-blink"
+           }`}
+          />
           </div>
-
           {/* Buttons */}
           <div className="grid grid-cols-4 gap-3">
             {buttons.flat().map((btn, index) => {
