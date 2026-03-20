@@ -23,10 +23,10 @@ export function ButtonGrid({ onButtonClick }) {
   };
 
   return (
-    <div className="w-full grid grid-cols-4 gap-2 sm:gap-3">
+    <div className="w-full grid grid-cols-4 gap-3">
       {BUTTONS.flat().map((btn, index) => {
         const base =
-          "flex items-center justify-center rounded-full text-lg sm:text-xl h-12 sm:h-16 transition active:scale-95 bg-gray-800 hover:bg-gray-700";
+          "flex items-center justify-center rounded-full text-xl h-16 transition active:scale-95 bg-gray-800 hover:bg-gray-700";
 
         const textColor = getButtonStyle(btn);
 
@@ -35,7 +35,7 @@ export function ButtonGrid({ onButtonClick }) {
             <button
               key={index}
               onClick={() => onButtonClick(btn)}
-              className={`col-span-2 flex items-center justify-start pl-4 sm:pl-6 rounded-full text-lg sm:text-xl h-12 sm:h-16 ${base} ${textColor}`}
+              className={`col-span-2 flex items-center justify-start pl-6 rounded-full text-xl h-16 ${base} ${textColor}`}
             >
               0
             </button>
